@@ -12,6 +12,8 @@
 		50FBDAB41CB5220100F5512B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50FBDAB21CB5220100F5512B /* Main.storyboard */; };
 		50FBDAB61CB5220100F5512B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50FBDAB51CB5220100F5512B /* Assets.xcassets */; };
 		50FBDAB91CB5220100F5512B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50FBDAB71CB5220100F5512B /* LaunchScreen.storyboard */; };
+		50FBDAC11CB538BA00F5512B /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAC01CB538BA00F5512B /* HowToViewController.swift */; };
+		50FBDAC31CB538C600F5512B /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAC21CB538C600F5512B /* PlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		50FBDAB51CB5220100F5512B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50FBDAB81CB5220100F5512B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50FBDABA1CB5220100F5512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50FBDAC01CB538BA00F5512B /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
+		50FBDAC21CB538C600F5512B /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				50FBDAB51CB5220100F5512B /* Assets.xcassets */,
 				50FBDAB71CB5220100F5512B /* LaunchScreen.storyboard */,
 				50FBDABA1CB5220100F5512B /* Info.plist */,
+				50FBDAC01CB538BA00F5512B /* HowToViewController.swift */,
+				50FBDAC21CB538C600F5512B /* PlayViewController.swift */,
 			);
 			path = BanditManchot;
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FBDAC31CB538C600F5512B /* PlayViewController.swift in Sources */,
+				50FBDAC11CB538BA00F5512B /* HowToViewController.swift in Sources */,
 				50FBDAB11CB5220100F5512B /* ViewController.swift in Sources */,
 				50FBDAAF1CB5220100F5512B /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +292,7 @@
 				50FBDABF1CB5220100F5512B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
