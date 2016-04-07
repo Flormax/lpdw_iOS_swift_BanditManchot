@@ -13,31 +13,44 @@ class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSo
 
 
     @IBOutlet weak var picker: PickerView!
-
-    
+    @IBOutlet weak var numberCoins: UILabel!
+    @IBOutlet weak var buttonImage: UIImageView!
+    var coins:Int = 10
+    var timer = NSTimer()
     var pickerData: [String] = [String]()
-    
 
-    @IBAction func test(sender: UISwipeGestureRecognizer) {
-        print("salut")
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        // Input data into the Array:
+        self.numberCoins.text = String(coins)
+        self.buttonImage.image = UIImage(named:"Image")
         pickerData = ["1", "2", "3", "4"]
         
         picker.dataSource = self
         picker.delegate = self
         picker.scrollingStyle = .Infinite
     }
+    
+    @IBAction func test(sender: UISwipeGestureRecognizer) {
+        if(self.coins > 0)
+        {
+            self.buttonImage.image = UIImage(named:"Image-1")
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeButton", userInfo: nil, repeats: false)
+            coins--
+            
+        }
+        
+    }
+    func changeButton(){
+        self.buttonImage.image = UIImage(named:"Image")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func numberOfRowsInPickerView(pickerView: PickerView) -> Int {
         return pickerData.count
     }
@@ -45,7 +58,7 @@ class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSo
     func pickerView(pickerView: PickerView, titleForRow row: Int) -> String {
         return pickerData[row]
     }
-    
+        
     func pickerView(pickerView: PickerView, didSelectRow row: Int) {
         print("The selected item is \(pickerData[row])")
     }

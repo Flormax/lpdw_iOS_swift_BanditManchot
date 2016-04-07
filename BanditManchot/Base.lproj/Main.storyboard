@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSm-Px-w4t">
-                                <rect key="frame" x="506" y="236" width="95" height="128"/>
+                                <rect key="frame" x="527" y="267" width="60" height="66"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COINS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaM-6b-oPC">
@@ -97,8 +97,8 @@
                                     <constraint firstAttribute="width" constant="27" id="jNC-Cy-2bv"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-ab-5au" customClass="PickerView" customModule="PickerView">
-                                <rect key="frame" x="20" y="197" width="480" height="322"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-ab-5au" customClass="PickerView" customModule="PickerView">
+                                <rect key="frame" x="20" y="196" width="480" height="322"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -107,12 +107,12 @@
                         <constraints>
                             <constraint firstItem="SfU-1K-SFK" firstAttribute="leading" secondItem="Y0Q-gy-Xkq" secondAttribute="trailing" constant="8" symbolic="YES" id="3nb-DG-oni"/>
                             <constraint firstItem="i3V-ab-5au" firstAttribute="top" secondItem="RaM-6b-oPC" secondAttribute="bottom" constant="36" id="HF9-Aa-7hb"/>
-                            <constraint firstItem="sPo-oB-8uM" firstAttribute="top" secondItem="tSm-Px-w4t" secondAttribute="bottom" constant="236" id="HVo-Pe-B0I"/>
+                            <constraint firstItem="sPo-oB-8uM" firstAttribute="top" secondItem="tSm-Px-w4t" secondAttribute="bottom" constant="267" id="HVo-Pe-B0I"/>
                             <constraint firstItem="RaM-6b-oPC" firstAttribute="baseline" secondItem="Y0Q-gy-Xkq" secondAttribute="baseline" id="I7z-sh-dUQ"/>
                             <constraint firstItem="sPo-oB-8uM" firstAttribute="top" secondItem="i3V-ab-5au" secondAttribute="bottom" constant="81" id="Ne1-2S-FxP"/>
                             <constraint firstItem="i3V-ab-5au" firstAttribute="leading" secondItem="Lc1-ZZ-Quf" secondAttribute="leadingMargin" id="aM5-bu-jRo"/>
-                            <constraint firstItem="tSm-Px-w4t" firstAttribute="leading" secondItem="i3V-ab-5au" secondAttribute="trailing" constant="6" id="c34-fJ-tIU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tSm-Px-w4t" secondAttribute="trailing" constant="-21" id="d1r-WG-yzM"/>
+                            <constraint firstItem="tSm-Px-w4t" firstAttribute="leading" secondItem="i3V-ab-5au" secondAttribute="trailing" constant="27" id="c34-fJ-tIU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tSm-Px-w4t" secondAttribute="trailing" constant="-7" id="d1r-WG-yzM"/>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="leading" secondItem="RaM-6b-oPC" secondAttribute="trailing" constant="32" id="ewM-U5-0W4"/>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="bottom" secondItem="SfU-1K-SFK" secondAttribute="bottom" id="peN-UW-swS"/>
                             <constraint firstItem="i3V-ab-5au" firstAttribute="top" secondItem="Lc1-ZZ-Quf" secondAttribute="top" constant="197" id="v4a-e2-Uue"/>
@@ -125,6 +125,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="buttonImage" destination="tSm-Px-w4t" id="Vi2-iu-wLt"/>
+                        <outlet property="numberCoins" destination="Y0Q-gy-Xkq" id="Jfo-70-gEX"/>
                         <outlet property="picker" destination="i3V-ab-5au" id="dzJ-xp-JZ7"/>
                     </connections>
                 </viewController>
@@ -148,7 +150,43 @@
                     <view key="view" contentMode="scaleToFill" id="V8K-u4-wcu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGLES DU JEU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcZ-Xc-EBs">
+                                <rect key="frame" x="236" y="102" width="128" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="qHV-pu-Hzk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-Ab-Dzw">
+                                <rect key="frame" x="71" y="171" width="459" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Le Bandit-Manchot est un jeu de hasard dont le but est d'aligner la même image pour gagner des points. Glisser votre doigt sur l'écran vers le bas pour lancer la roulette. Vous avez 10 essais, ce qui correspond a 10 pièces. Engrangez un maximum de points !</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Récapitulatif des points: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-Mw-N88">
+                                <rect key="frame" x="71" y="291" width="189" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DGg-MQ-ldg" firstAttribute="top" secondItem="2EP-Ab-Dzw" secondAttribute="bottom" constant="341" id="0A2-dc-uuG"/>
+                            <constraint firstItem="2EP-Ab-Dzw" firstAttribute="centerX" secondItem="PcZ-Xc-EBs" secondAttribute="centerX" id="5hw-HU-3Gx"/>
+                            <constraint firstItem="PcZ-Xc-EBs" firstAttribute="centerX" secondItem="V8K-u4-wcu" secondAttribute="centerX" id="IHt-Zl-hCq"/>
+                            <constraint firstItem="2EP-Ab-Dzw" firstAttribute="top" secondItem="PcZ-Xc-EBs" secondAttribute="bottom" constant="22" id="Prv-ae-yRI"/>
+                            <constraint firstItem="VvL-Mw-N88" firstAttribute="top" secondItem="2EP-Ab-Dzw" secondAttribute="bottom" constant="32" id="Tc6-c7-cIm"/>
+                            <constraint firstItem="PcZ-Xc-EBs" firstAttribute="top" secondItem="B9f-u8-mFm" secondAttribute="bottom" constant="38" id="mhp-kT-txY"/>
+                            <constraint firstItem="DGg-MQ-ldg" firstAttribute="top" secondItem="VvL-Mw-N88" secondAttribute="bottom" constant="278" id="n1B-Og-OZz"/>
+                            <constraint firstItem="VvL-Mw-N88" firstAttribute="leading" secondItem="2EP-Ab-Dzw" secondAttribute="leading" id="qHY-DV-oJt"/>
+                            <constraint firstItem="DGg-MQ-ldg" firstAttribute="top" secondItem="PcZ-Xc-EBs" secondAttribute="bottom" constant="451" id="sUH-cD-ld6"/>
+                            <constraint firstItem="2EP-Ab-Dzw" firstAttribute="leading" secondItem="V8K-u4-wcu" secondAttribute="leadingMargin" constant="51" id="vfR-44-cWE"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecX-d4-gcc" userLabel="First Responder" sceneMemberID="firstResponder"/>

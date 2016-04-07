@@ -9,7 +9,8 @@
 import UIKit
 
 class HowToViewController: UIViewController {
-
+    
+    var colorString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
