@@ -7,50 +7,70 @@
 //
 
 import UIKit
+import PickerView
 
-class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSource {
 
-    @IBOutlet weak var picker: UIPickerView!
+
+    @IBOutlet weak var picker: PickerView!
+
     
-    var pickerData: [[String]] = [[String]]()
+    var pickerData: [String] = [String]()
     
 
     @IBAction func test(sender: UISwipeGestureRecognizer) {
         print("salut")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         // Input data into the Array:
-        pickerData = [["1", "2", "3", "4"],
-            ["a", "b", "c", "d"],
-            ["!", "#", "$", "%"],
-            ["w", "x", "y", "z"]]
+        pickerData = ["1", "2", "3", "4"]
+        
+        picker.dataSource = self
+        picker.delegate = self
+        picker.scrollingStyle = .Infinite
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 4
-    }
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+    func numberOfRowsInPickerView(pickerView: PickerView) -> Int {
         return pickerData.count
     }
     
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[component][row]
+    func pickerView(pickerView: PickerView, titleForRow row: Int) -> String {
+        return pickerData[row]
     }
     
+    func pickerView(pickerView: PickerView, didSelectRow row: Int) {
+        print("The selected item is \(pickerData[row])")
+    }
     
+    func heightForRowInPickerView(pickerView: PickerView) -> CGFloat {
+        return 50.0 // In this example I'm returning arbitrary 50.0pt but you can return the row height you want.
+    }
+    
+    func styleForLabel(label: UILabel, inPickerView pickerView: PickerView) {
+        label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(15.0)
+        label.textColor = .lightGrayColor()
+    }
+    
+    func styleForHighlightedLabel(label: UILabel, inPickerView pickerView: PickerView) {
+        label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(25.0) // Change the size of font
+        label.textColor = view.tintColor // Change the text color
+    }
     
 
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -14,9 +14,11 @@
 		50FBDAB91CB5220100F5512B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50FBDAB71CB5220100F5512B /* LaunchScreen.storyboard */; };
 		50FBDAC11CB538BA00F5512B /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAC01CB538BA00F5512B /* HowToViewController.swift */; };
 		50FBDAC31CB538C600F5512B /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FBDAC21CB538C600F5512B /* PlayViewController.swift */; };
+		81DF2AEAB1CF4E17B44C0464 /* Pods_BanditManchot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168078734C0F4CFE9FA84BA8 /* Pods_BanditManchot.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168078734C0F4CFE9FA84BA8 /* Pods_BanditManchot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BanditManchot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FBDAAB1CB5220100F5512B /* BanditManchot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BanditManchot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FBDAAE1CB5220100F5512B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50FBDAB01CB5220100F5512B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		50FBDABA1CB5220100F5512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50FBDAC01CB538BA00F5512B /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
 		50FBDAC21CB538C600F5512B /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		A80A76C35A4A4AE68F31835D /* Pods-BanditManchot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BanditManchot.release.xcconfig"; path = "Pods/Target Support Files/Pods-BanditManchot/Pods-BanditManchot.release.xcconfig"; sourceTree = "<group>"; };
+		DFDF64BCA39F815594AA099C /* Pods-BanditManchot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BanditManchot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BanditManchot/Pods-BanditManchot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DF2AEAB1CF4E17B44C0464 /* Pods_BanditManchot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				50FBDAAD1CB5220100F5512B /* BanditManchot */,
 				50FBDAAC1CB5220100F5512B /* Products */,
+				BE3FC15CA4ADC3C91EEAD71F /* Pods */,
+				72C87B39989E716BDC372ADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,23 @@
 			path = BanditManchot;
 			sourceTree = "<group>";
 		};
+		72C87B39989E716BDC372ADF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				168078734C0F4CFE9FA84BA8 /* Pods_BanditManchot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE3FC15CA4ADC3C91EEAD71F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFDF64BCA39F815594AA099C /* Pods-BanditManchot.debug.xcconfig */,
+				A80A76C35A4A4AE68F31835D /* Pods-BanditManchot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50FBDABD1CB5220100F5512B /* Build configuration list for PBXNativeTarget "BanditManchot" */;
 			buildPhases = (
+				7C07BF74DBA5642EC706DC55 /* Check Pods Manifest.lock */,
 				50FBDAA71CB5220100F5512B /* Sources */,
 				50FBDAA81CB5220100F5512B /* Frameworks */,
 				50FBDAA91CB5220100F5512B /* Resources */,
+				5B6E8C0FA348C155B70AFA88 /* Embed Pods Frameworks */,
+				8083EAC60B91587EF7407AED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B6E8C0FA348C155B70AFA88 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BanditManchot/Pods-BanditManchot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C07BF74DBA5642EC706DC55 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8083EAC60B91587EF7407AED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BanditManchot/Pods-BanditManchot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50FBDAA71CB5220100F5512B /* Sources */ = {
@@ -253,6 +328,7 @@
 		};
 		50FBDABE1CB5220100F5512B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFDF64BCA39F815594AA099C /* Pods-BanditManchot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BanditManchot/Info.plist;
@@ -264,6 +340,7 @@
 		};
 		50FBDABF1CB5220100F5512B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A80A76C35A4A4AE68F31835D /* Pods-BanditManchot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BanditManchot/Info.plist;
