@@ -12,8 +12,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var imgBandit: UIImageView!
-    @IBOutlet weak var numberCoins: UILabel!
     @IBOutlet weak var buttonImage: UIImageView!
+    @IBOutlet weak var numberCoins: UILabel!
+    @IBOutlet weak var imgCoins: UIImageView!
     var coins:Int = 10
     var timer = NSTimer()
     var pickerData: [String] = [String]()
@@ -24,37 +25,21 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.numberCoins.text = String(coins)
+        self.numberCoins.font = UIFont(name: numberCoins.font.fontName, size: 30)
         self.buttonImage.image = UIImage(named:"Image")
-        self.imgBandit.image = UIImage(named:"Image-2")
+        self.imgBandit.image = UIImage(named:"background")
+        self.imgCoins.image = UIImage(named:"coins")
+        itemNameList = ["bulbi", "ratata", "goupix" , "pika" , "mew" , "mystherbe",
+            "ronflex", "ectoplasma"]
         
-        itemNameList = ["bar", "bar", "bar" , "bar" , "bar" , "bar",
-            "bar", "bar", "bar" , "bar" , "bar" , "bar",
-            "bar", "bar", "bar" , "bar" , "bar" , "bar"]
-        
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
-        itemPhotoList.append(UIImage(named: "bar")!)
+        itemPhotoList.append(UIImage(named: "bulbi")!)
+        itemPhotoList.append(UIImage(named: "ratata")!)
+        itemPhotoList.append(UIImage(named: "goupix")!)
+        itemPhotoList.append(UIImage(named: "pika")!)
+        itemPhotoList.append(UIImage(named: "mew")!)
+        itemPhotoList.append(UIImage(named: "mystherbe")!)
+        itemPhotoList.append(UIImage(named: "ronflex")!)
+        itemPhotoList.append(UIImage(named: "ectoplasma")!)
 
         
         picker.dataSource = self
@@ -80,9 +65,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        let view = UIView(frame: CGRectMake(0, 0, 30, 30))
+        let view = UIView(frame: CGRectMake(0, 0, 50, 50))
         
-        let imageView = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        let imageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
         imageView.image = itemPhotoList[row]
         
         let labelView = UILabel(frame: CGRectMake(0, 0, 0, 0))
