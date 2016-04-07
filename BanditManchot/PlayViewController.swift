@@ -11,7 +11,7 @@ import PickerView
 
 class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSource {
 
-
+    @IBOutlet weak var imgBandit: UIImageView!
     @IBOutlet weak var picker: PickerView!
     @IBOutlet weak var numberCoins: UILabel!
     @IBOutlet weak var buttonImage: UIImageView!
@@ -23,9 +23,9 @@ class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.numberCoins.text = String(coins)
         self.buttonImage.image = UIImage(named:"Image")
+        self.imgBandit.image = UIImage(named:"Image-2")
         pickerData = ["1", "2", "3", "4"]
         
         picker.dataSource = self
@@ -38,8 +38,8 @@ class PlayViewController: UIViewController, PickerViewDelegate, PickerViewDataSo
         {
             self.buttonImage.image = UIImage(named:"Image-1")
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeButton", userInfo: nil, repeats: false)
-            coins--
-            
+            coins -= 1
+            self.numberCoins.text = String(coins)
         }
         
     }
