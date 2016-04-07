@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -104,28 +104,30 @@
                                     <segue destination="mTp-bT-vgm" kind="presentation" id="ojC-V7-YCp"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-ab-5au" customClass="PickerView" customModule="PickerView">
-                                <rect key="frame" x="107" y="222" width="272" height="163"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CdD-qv-keM">
                                 <rect key="frame" x="0.0" y="149" width="519" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="MCq-1n-IkT"/>
                                 </constraints>
                             </imageView>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4IE-ju-x8c">
+                                <rect key="frame" x="20" y="169" width="475" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="leading" secondItem="CdD-qv-keM" secondAttribute="trailing" constant="8" symbolic="YES" id="0JJ-lB-ABg"/>
+                            <constraint firstItem="CdD-qv-keM" firstAttribute="leading" secondItem="4IE-ju-x8c" secondAttribute="trailing" constant="-495" id="3R3-LZ-f17"/>
                             <constraint firstItem="SfU-1K-SFK" firstAttribute="leading" secondItem="Y0Q-gy-Xkq" secondAttribute="trailing" constant="8" symbolic="YES" id="3nb-DG-oni"/>
                             <constraint firstItem="CdD-qv-keM" firstAttribute="leading" secondItem="Lc1-ZZ-Quf" secondAttribute="leading" id="5PR-NR-TfA"/>
                             <constraint firstItem="sPo-oB-8uM" firstAttribute="top" secondItem="tSm-Px-w4t" secondAttribute="bottom" constant="267" id="HVo-Pe-B0I"/>
                             <constraint firstItem="RaM-6b-oPC" firstAttribute="baseline" secondItem="Y0Q-gy-Xkq" secondAttribute="baseline" id="I7z-sh-dUQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cZH-K7-UC0" secondAttribute="trailing" constant="60" id="LjT-Zv-tmU"/>
                             <constraint firstItem="tSm-Px-w4t" firstAttribute="leading" secondItem="CdD-qv-keM" secondAttribute="trailing" constant="8" symbolic="YES" id="WJk-S4-4Zb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4IE-ju-x8c" secondAttribute="trailing" constant="85" id="c6n-zc-a2h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tSm-Px-w4t" secondAttribute="trailing" constant="-7" id="d1r-WG-yzM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4IE-ju-x8c" secondAttribute="leading" id="dmj-iJ-B8W"/>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="leading" secondItem="RaM-6b-oPC" secondAttribute="trailing" constant="32" id="ewM-U5-0W4"/>
                             <constraint firstItem="CdD-qv-keM" firstAttribute="top" secondItem="wgE-3o-cLU" secondAttribute="bottom" constant="129" id="gJa-ke-vES"/>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="bottom" secondItem="SfU-1K-SFK" secondAttribute="bottom" id="peN-UW-swS"/>
@@ -140,7 +142,7 @@
                         <outlet property="buttonImage" destination="tSm-Px-w4t" id="Vi2-iu-wLt"/>
                         <outlet property="imgBandit" destination="CdD-qv-keM" id="xTd-KW-By2"/>
                         <outlet property="numberCoins" destination="Y0Q-gy-Xkq" id="Jfo-70-gEX"/>
-                        <outlet property="picker" destination="i3V-ab-5au" id="dzJ-xp-JZ7"/>
+                        <outlet property="picker" destination="4IE-ju-x8c" id="ldf-6i-aEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cv0-R1-3kv" userLabel="First Responder" sceneMemberID="firstResponder"/>
