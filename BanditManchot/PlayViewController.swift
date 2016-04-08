@@ -21,9 +21,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var coins:Int = 10
     var timer = NSTimer()
     var pickerData: [String] = [String]()
-    var itemNameList = [String]()
-    var selectedItemName = String()
-    var itemPhotoList = [UIImage]()
+    var itemList1 =  [Int: [String: UIImage]]()
+    var itemList2 =  [Int: [String: UIImage]]()
+    var itemList3 =  [Int: [String: UIImage]]()
+    
     var j:Int = 0
     @IBOutlet weak var results: UILabel!
     override func viewDidLoad() {
@@ -35,22 +36,45 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.imgBandit.image = UIImage(named:"background")
         self.logoPokemon.image = UIImage(named:"logo")
         self.imgCoins.image = UIImage(named:"coins")
-        itemNameList = ["bulbi", "ratata", "goupix" , "pika" , "mew" , "mystherbe",
-            "ronflex", "ectoplasma"]
         
-        itemPhotoList.append(UIImage(named: "bulbi")!)
-        itemPhotoList.append(UIImage(named: "ratata")!)
-        itemPhotoList.append(UIImage(named: "goupix")!)
-        itemPhotoList.append(UIImage(named: "pika")!)
-        itemPhotoList.append(UIImage(named: "mew")!)
-        itemPhotoList.append(UIImage(named: "mystherbe")!)
-        itemPhotoList.append(UIImage(named: "ronflex")!)
-        itemPhotoList.append(UIImage(named: "ectoplasma")!)
-
+        itemList1[0] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList1[1] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList1[2] = ["ratata": UIImage(named: "ratata")!]
+        itemList1[3] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList1[4] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList1[5] = ["ratata": UIImage(named: "ratata")!]
+        itemList1[6] = ["mew": UIImage(named: "mew")!]
+        itemList1[7] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList1[8] = ["ratata": UIImage(named: "ratata")!]
+        itemList1[9] = ["pika": UIImage(named: "pika")!]
+        
+        itemList2[0] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList2[1] = ["mew": UIImage(named: "mew")!]
+        itemList2[2] = ["ratata": UIImage(named: "ratata")!]
+        itemList2[3] = ["pika": UIImage(named: "pika")!]
+        itemList2[4] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList2[5] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList2[6] = ["ratata": UIImage(named: "ratata")!]
+        itemList2[7] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList2[8] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList2[9] = ["ratata": UIImage(named: "ratata")!]
+        
+        
+        itemList3[0] = ["ratata": UIImage(named: "ratata")!]
+        itemList3[1] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList3[2] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList3[3] = ["ratata": UIImage(named: "ratata")!]
+        itemList3[4] = ["bulbi": UIImage(named: "bulbi")!]
+        itemList3[5] = ["ratata": UIImage(named: "ratata")!]
+        itemList3[6] = ["ronflex": UIImage(named: "ronflex")!]
+        itemList3[7] = ["pika": UIImage(named: "pika")!]
+        itemList3[8] = ["mew": UIImage(named: "mew")!]
+        itemList3[9] = ["ratata": UIImage(named: "ratata")!]
+        
         
         picker.dataSource = self
         picker.delegate = self
-        picker.userInteractionEnabled = false
+        //picker.userInteractionEnabled = false
         
         picker.selectRow(5, inComponent: 0, animated: false)
         picker.selectRow(5, inComponent: 1, animated: false)
@@ -78,10 +102,11 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if j < 930 {
             NSLog(String(j))
             let k: Int = 995 - j
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+k, inComponent: 0, animated: true)
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+k, inComponent: 1, animated: true)
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+k, inComponent: 2, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+k, inComponent: 0, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+k, inComponent: 1, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+k, inComponent: 2, animated: true)
             j += 40
+            print(arc4random_uniform(UInt32(10)))
         }
         else
         {
@@ -89,16 +114,16 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             timer.invalidate()
             let k: Int = 995 - j
             NSLog(String(k))
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-8), inComponent: 0, animated: true)
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-8), inComponent: 1, animated: true)
-            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-8), inComponent: 2, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-10), inComponent: 0, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-10), inComponent: 1, animated: true)
+            picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-10), inComponent: 2, animated: true)
             var seconds = 0.3
             var delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
             var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                self.picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-16), inComponent: 1, animated: true)
-                self.picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-16), inComponent: 2, animated: true)
+                self.picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-16), inComponent: 1, animated: true)
+                self.picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-16), inComponent: 2, animated: true)
             })
             
             seconds = 0.6
@@ -106,16 +131,16 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                self.picker.selectRow(Int(arc4random_uniform(UInt32(8)))+(k-24), inComponent: 2, animated: true)
+                self.picker.selectRow(Int(arc4random_uniform(UInt32(10)))+(k-24), inComponent: 2, animated: true)
             })
             seconds = 1.0
             delay = seconds * Double(NSEC_PER_SEC)
             dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                let spin1:Int = self.picker.selectedRowInComponent(0)%8
-                let spin2:Int = self.picker.selectedRowInComponent(1)%8
-                let spin3:Int = self.picker.selectedRowInComponent(2)%8
+                let spin1:Int = self.picker.selectedRowInComponent(0)%10
+                let spin2:Int = self.picker.selectedRowInComponent(1)%10
+                let spin3:Int = self.picker.selectedRowInComponent(2)%10
                 
                 self.calculCoinsWin(spin1, spin2: spin2, spin3: spin3)
             })
@@ -133,48 +158,60 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, var viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        row = row % 8
+        row = row % 10
         
         let view = UIView(frame: CGRectMake(0, 0, 50, 50))
         
         let imageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
-        imageView.image = itemPhotoList[row]
         
-        let labelView = UILabel(frame: CGRectMake(0, 0, 0, 0))
-        labelView.text = itemNameList[row]
-        
+        switch component {
+        case 1:
+            let image = itemList2[row]
+            let keys = image?.keys
+            imageView.image = image![(keys?.first)!]
+        case 2:
+            let image = itemList3[row]
+            let keys = image?.keys
+            imageView.image = image![(keys?.first)!]
+        default:
+            let image = itemList1[row]
+            let keys = image?.keys
+            imageView.image = image![(keys?.first)!]
+        }
+
         view.addSubview(imageView)
-        view.addSubview(labelView)
-        
         return view
     }
+    
     func calculCoinsWin(spin1: Int,spin2: Int,spin3: Int)
     {
         
-        var spin1row1: Int = (spin1 == 0 ? 7 : spin1-1)
-        var spin1row2: Int = spin1
-        var spin1row3: Int = (spin1 == 7 ? 0 : spin1+1)
+        let spin1row1: Int = (spin1 == 0 ? 9 : spin1-1)
+        let spin1row2: Int = spin1
+        let spin1row3: Int = (spin1 == 9 ? 0 : spin1+1)
         
-        var spin2row1: Int = (spin2 == 0 ? 7 : spin2-1)
-        var spin2row2: Int = spin2
-        var spin2row3: Int = (spin2 == 7 ? 0 : spin2+1)
+        let spin2row1: Int = (spin2 == 0 ? 9 : spin2-1)
+        let spin2row2: Int = spin2
+        let spin2row3: Int = (spin2 == 9 ? 0 : spin2+1)
         
-        var spin3row1: Int = (spin3 == 0 ? 7 : spin3-1)
-        var spin3row2: Int = spin3
-        var spin3row3: Int = (spin3 == 7 ? 0 : spin3+1)
+        let spin3row1: Int = (spin3 == 0 ? 9 : spin3-1)
+        let spin3row2: Int = spin3
+        let spin3row3: Int = (spin3 == 9 ? 0 : spin3+1)
         
-        var resultTab: [[String]] = [
-                                        [itemNameList[spin1row1],itemNameList[spin2row1],itemNameList[spin3row1]],
-                                        [itemNameList[spin1row2],itemNameList[spin2row2],itemNameList[spin3row2]],
-                                        [itemNameList[spin1row3],itemNameList[spin2row3],itemNameList[spin3row3]]
+        let resultTab: [[String]] = [
+                                        [itemList1[spin1row1]!.keys.first!,itemList2[spin2row1]!.keys.first!,itemList3[spin3row1]!.keys.first!],
+                                        [itemList1[spin1row2]!.keys.first!,itemList2[spin2row2]!.keys.first!,itemList3[spin3row2]!.keys.first!],
+                                        [itemList1[spin1row3]!.keys.first!,itemList2[spin2row3]!.keys.first!,itemList3[spin3row3]!.keys.first!]
                                     ]
         
-        self.results.text = itemNameList[spin1row1] + itemNameList[spin2row1] + itemNameList[spin3row1]
-        self.results2.text = itemNameList[spin1row2] + itemNameList[spin2row2] + itemNameList[spin3row2]
-        self.results3.text = itemNameList[spin1row3] + itemNameList[spin2row3] + itemNameList[spin3row3]
+        self.results.text = itemList1[spin1row1]!.keys.first! + itemList2[spin2row1]!.keys.first! + itemList3[spin3row1]!.keys.first!
+        self.results2.text = itemList1[spin1row2]!.keys.first! + itemList2[spin2row2]!.keys.first! + itemList3[spin3row2]!.keys.first!
+        self.results3.text = itemList1[spin1row3]!.keys.first! + itemList2[spin2row3]!.keys.first! + itemList3[spin3row3]!.keys.first!
+        
         // Ligne du haut
-        if(itemNameList[spin1row1] == itemNameList[spin2row1] && itemNameList[spin2row1] == itemNameList[spin3row1]){
-            switch itemNameList[spin1row1]{
+        if(itemList1[spin1row1]!.keys.first! == itemList2[spin2row1]!.keys.first! &&
+            itemList2[spin2row1]!.keys.first! == itemList3[spin3row1]!.keys.first!){
+            switch itemList1[spin1row1]!.keys.first!{
             case "ratata":
                 self.coins += spin1*2
             case "bulbi":
@@ -197,8 +234,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.results.text = "Ligne du haut"
         }
         //Ligne du milieu
-        if(itemNameList[spin1row2] == itemNameList[spin2row2] && itemNameList[spin2row2] == itemNameList[spin3row2]){
-            switch itemNameList[spin1row2]{
+        if(itemList1[spin1row2]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
+            itemList2[spin2row2]!.keys.first! == itemList3[spin3row2]!.keys.first!){
+            switch itemList1[spin1row2]!.keys.first!{
                 case "ratata":
                     self.coins += spin1*3
                 case "bulbi":
@@ -221,8 +259,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.results.text = "Ligne du milieu"
         }
         //Ligne du bas
-        if(itemNameList[spin1row3] == itemNameList[spin2row3] && itemNameList[spin2row3] == itemNameList[spin3row3]){
-            switch itemNameList[spin1row3]{
+        if(itemList1[spin1row3]!.keys.first! == itemList2[spin2row3]!.keys.first! &&
+            itemList2[spin2row3]!.keys.first! == itemList3[spin3row3]!.keys.first!){
+            switch itemList1[spin1row3]!.keys.first!{
             case "ratata":
                 self.coins += spin1*2
             case "bulbi":
@@ -245,8 +284,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.results.text = "Ligne du bas"
         }
         //Diagonale 1
-        if(itemNameList[spin1row1] == itemNameList[spin2row2] && itemNameList[spin2row2] == itemNameList[spin3row3]){
-            switch itemNameList[spin1row1]{
+        if(itemList1[spin1row1]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
+            itemList2[spin2row2]!.keys.first! == itemList3[spin3row3]!.keys.first!){
+            switch itemList1[spin1row1]!.keys.first!{
             case "ratata":
                 self.coins += spin1
             case "bulbi":
@@ -269,8 +309,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.results.text = "diagonale1"
         }
         //Diagonale 2
-        if(itemNameList[spin1row1] == itemNameList[spin2row2] && itemNameList[spin2row2] == itemNameList[spin3row3]){
-            switch itemNameList[spin1row3]{
+        if(itemList1[spin1row1]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
+            itemList2[spin2row2]!.keys.first! == itemList3[spin3row3]!.keys.first!){
+            switch itemList1[spin1row3]!.keys.first!{
             case "ratata":
                 self.coins += spin1
             case "bulbi":
