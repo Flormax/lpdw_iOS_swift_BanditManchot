@@ -10,10 +10,17 @@ import UIKit
 
 class HowToViewController: UIViewController {
     
+    @IBOutlet weak var bulbiImg: UIImageView!
+    @IBOutlet weak var bulbiImg2: UIImageView!
+    @IBOutlet weak var bulbiImg3: UIImageView!
+    
+    
     var colorString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.bulbiImg.image = UIImage(named:"bulbi")
+        self.bulbiImg2.image = UIImage(named:"bulbi")
+        self.bulbiImg3.image = UIImage(named:"bulbi")
         // Do any additional setup after loading the view.
     }
 

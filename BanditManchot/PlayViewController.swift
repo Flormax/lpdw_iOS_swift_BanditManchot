@@ -14,6 +14,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var imgBandit: UIImageView!
     @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var numberCoins: UILabel!
+    @IBOutlet weak var logoPokemon: UIImageView!
     @IBOutlet weak var imgCoins: UIImageView!
     var coins:Int = 10
     var timer = NSTimer()
@@ -28,6 +29,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.numberCoins.font = UIFont(name: numberCoins.font.fontName, size: 30)
         self.buttonImage.image = UIImage(named:"Image")
         self.imgBandit.image = UIImage(named:"background")
+        self.logoPokemon.image = UIImage(named:"logo")
         self.imgCoins.image = UIImage(named:"coins")
         itemNameList = ["bulbi", "ratata", "goupix" , "pika" , "mew" , "mystherbe",
             "ronflex", "ectoplasma"]
@@ -44,6 +46,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         picker.dataSource = self
         picker.delegate = self
+        
+        picker.selectRow(5, inComponent: 0, animated: false)
+        picker.selectRow(5, inComponent: 1, animated: false)
+        picker.selectRow(5, inComponent: 2, animated: false)
     }
     
     @IBAction func test(sender: UISwipeGestureRecognizer) {
@@ -53,9 +59,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeButton", userInfo: nil, repeats: false)
             coins -= 1
             self.numberCoins.text = String(coins)
+            
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "spin", userInfo: nil, repeats: true)
+            //            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+950, inComponent: 0, animated: true)
+            //            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+950, inComponent: 1, animated: true)
+            //            picker.selectRow(Int(arc4random_uniform(UInt32(8)))+950, inComponent: 2, animated: true)
         }
         
     }
+    
+    func spin(){
+        
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 0, animated: true)
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 1, animated: true)
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 2, animated: true)
+    }
+    
     func changeButton(){
         self.buttonImage.image = UIImage(named:"Image")
     }
@@ -64,7 +83,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(pickerView: UIPickerView, var viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        row = row % 8
+        
         let view = UIView(frame: CGRectMake(0, 0, 50, 50))
         
         let imageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
@@ -85,7 +106,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return itemNameList.count
+        return 1000
     }
     
     
@@ -96,17 +117,17 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        print(row)
     }
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
