@@ -10,6 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var results3: UILabel!
     @IBOutlet weak var results2: UILabel!
     @IBOutlet weak var picker: UIPickerView!
@@ -33,8 +34,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.numberCoins.text = String(coins)
         self.numberCoins.font = UIFont(name: numberCoins.font.fontName, size: 30)
         self.buttonImage.image = UIImage(named:"Image")
-        self.imgBandit.image = UIImage(named:"background")
-        self.logoPokemon.image = UIImage(named:"logo")
+        self.background.image = UIImage(named:"logobackground")
         self.imgCoins.image = UIImage(named:"coins")
         
         itemList1[0] = ["ronflex": UIImage(named: "ronflex")!]
