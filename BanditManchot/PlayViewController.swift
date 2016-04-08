@@ -22,9 +22,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var itemNameList = [String]()
     var selectedItemName = String()
     var itemPhotoList = [UIImage]()
-
+    var j:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.numberCoins.text = String(coins)
         self.numberCoins.font = UIFont(name: numberCoins.font.fontName, size: 30)
         self.buttonImage.image = UIImage(named:"Image")
@@ -46,6 +47,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         picker.dataSource = self
         picker.delegate = self
+        picker.userInteractionEnabled = false
         
         picker.selectRow(5, inComponent: 0, animated: false)
         picker.selectRow(5, inComponent: 1, animated: false)
@@ -55,6 +57,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func test(sender: UISwipeGestureRecognizer) {
         if(self.coins > 0)
         {
+            j = 0
+            picker.selectRow(5, inComponent: 0, animated: false)
+            picker.selectRow(5, inComponent: 1, animated: false)
+            picker.selectRow(5, inComponent: 2, animated: false)
             self.buttonImage.image = UIImage(named:"Image-1")
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeButton", userInfo: nil, repeats: false)
             coins -= 1
@@ -69,10 +75,19 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func spin(){
+        if j < 24 {
+            NSLog(String(j))
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+500, inComponent: 0, animated: true)
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+700, inComponent: 1, animated: true)
+        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+950, inComponent: 2, animated: true)
+            j += 1
+        }
+        else
+        {
+            NSLog(String(j))
+            timer.invalidate()
+        }
         
-        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 0, animated: true)
-        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 1, animated: true)
-        picker.selectRow(Int(arc4random_uniform(UInt32(8)))+100, inComponent: 2, animated: true)
     }
     
     func changeButton(){
