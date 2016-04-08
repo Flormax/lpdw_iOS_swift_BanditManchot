@@ -25,7 +25,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var itemList1 =  [Int: [String: UIImage]]()
     var itemList2 =  [Int: [String: UIImage]]()
     var itemList3 =  [Int: [String: UIImage]]()
-    
+    var winCoins: Int = 0
     var j:Int = 0
     @IBOutlet weak var results: UILabel!
     override func viewDidLoad() {
@@ -199,10 +199,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let spin3row3: Int = (spin3 == 9 ? 0 : spin3+1)
         
         let resultTab: [[String]] = [
-                                        [itemList1[spin1row1]!.keys.first!,itemList2[spin2row1]!.keys.first!,itemList3[spin3row1]!.keys.first!],
-                                        [itemList1[spin1row2]!.keys.first!,itemList2[spin2row2]!.keys.first!,itemList3[spin3row2]!.keys.first!],
-                                        [itemList1[spin1row3]!.keys.first!,itemList2[spin2row3]!.keys.first!,itemList3[spin3row3]!.keys.first!]
-                                    ]
+            [itemList1[spin1row1]!.keys.first!,itemList2[spin2row1]!.keys.first!,itemList3[spin3row1]!.keys.first!],
+            [itemList1[spin1row2]!.keys.first!,itemList2[spin2row2]!.keys.first!,itemList3[spin3row2]!.keys.first!],
+            [itemList1[spin1row3]!.keys.first!,itemList2[spin2row3]!.keys.first!,itemList3[spin3row3]!.keys.first!]
+        ]
         
         self.results.text = itemList1[spin1row1]!.keys.first! + itemList2[spin2row1]!.keys.first! + itemList3[spin3row1]!.keys.first!
         self.results2.text = itemList1[spin1row2]!.keys.first! + itemList2[spin2row2]!.keys.first! + itemList3[spin3row2]!.keys.first!
@@ -213,126 +213,132 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             itemList2[spin2row1]!.keys.first! == itemList3[spin3row1]!.keys.first!){
             switch itemList1[spin1row1]!.keys.first!{
             case "ratata":
-                self.coins += spin1*2
+                winCoins = 1*2
+                self.coins += winCoins
             case "bulbi":
-                self.coins += spin1*2
-            case "goupix":
-                self.coins += spin1*2
+                winCoins = 2*2
+                self.coins += winCoins
             case "pika":
-                self.coins += spin1*2
-            case "mystherbe":
-                self.coins += spin1*2
-            case "ectoplasma":
-                self.coins += spin1*2
+                winCoins = 3*2
+                self.coins += winCoins
             case "ronflex":
-                self.coins += spin1*2
+                winCoins = 3*2
+                self.coins += winCoins
             case "mew":
-                self.coins += spin1*2
+                winCoins = 10*2
+                self.coins += winCoins
             default:
                 self.coins += 0
             }
-            self.results.text = "Ligne du haut"
+            self.results.text = "Bravo ! Ligne du haut: "+itemList1[spin1row1]!.keys.first!
+            self.results2.text = "Multiplicateur x2 !!"
+            self.results3.text = "Vous avez gagné: "+String(winCoins)
         }
         //Ligne du milieu
         if(itemList1[spin1row2]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
             itemList2[spin2row2]!.keys.first! == itemList3[spin3row2]!.keys.first!){
             switch itemList1[spin1row2]!.keys.first!{
-                case "ratata":
-                    self.coins += spin1*3
-                case "bulbi":
-                    self.coins += spin1*3
-                case "goupix":
-                    self.coins += spin1*3
-                case "pika":
-                    self.coins += spin1*3
-                case "mystherbe":
-                    self.coins += spin1*3
-                case "ectoplasma":
-                    self.coins += spin1*3
-                case "ronflex":
-                    self.coins += spin1*3
-                case "mew":
-                    self.coins += spin1*3
-                default:
-                    self.coins += 0
+            case "ratata":
+                winCoins = 1*3
+                self.coins += winCoins
+            case "bulbi":
+                winCoins = 2*3
+                self.coins += winCoins
+            case "pika":
+                winCoins = 3*3
+                self.coins += winCoins
+            case "ronflex":
+                winCoins = 3*3
+                self.coins += winCoins
+            case "mew":
+                winCoins = 10*3
+                self.coins += winCoins
+            default:
+                self.coins += 0
             }
-            self.results.text = "Ligne du milieu"
+            self.results.text = "Bravo ! Ligne du Milieu: "+itemList1[spin1row2]!.keys.first!
+            self.results2.text = "Multiplicateur x3 !!"
+            self.results3.text = "Vous avez gagné: "+String(winCoins)
         }
         //Ligne du bas
         if(itemList1[spin1row3]!.keys.first! == itemList2[spin2row3]!.keys.first! &&
             itemList2[spin2row3]!.keys.first! == itemList3[spin3row3]!.keys.first!){
             switch itemList1[spin1row3]!.keys.first!{
             case "ratata":
-                self.coins += spin1*2
+                winCoins = 1*2
+                self.coins += winCoins
             case "bulbi":
-                self.coins += spin1*2
-            case "goupix":
-                self.coins += spin1*2
+                winCoins = 2*2
+                self.coins += winCoins
             case "pika":
-                self.coins += spin1*2
-            case "mystherbe":
-                self.coins += spin1*2
-            case "ectoplasma":
-                self.coins += spin1*2
+                winCoins = 3*2
+                self.coins += winCoins
             case "ronflex":
-                self.coins += spin1*2
+                winCoins = 3*2
+                self.coins += winCoins
             case "mew":
-                self.coins += spin1*2
+                winCoins = 10*2
+                self.coins += winCoins
             default:
                 self.coins += 0
             }
-            self.results.text = "Ligne du bas"
+            self.results.text = "Bravo ! Ligne du Bas: "+itemList1[spin1row3]!.keys.first!
+            self.results2.text = "Multiplicateur x2 !!"
+            self.results3.text = "Vous avez gagné: "+String(winCoins)
         }
         //Diagonale 1
         if(itemList1[spin1row1]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
             itemList2[spin2row2]!.keys.first! == itemList3[spin3row3]!.keys.first!){
             switch itemList1[spin1row1]!.keys.first!{
             case "ratata":
-                self.coins += spin1
+                winCoins = 1
+                self.coins += winCoins
             case "bulbi":
-                self.coins += spin1
-            case "goupix":
-                self.coins += spin1
+                winCoins = 2
+                self.coins += winCoins
             case "pika":
-                self.coins += spin1
-            case "mystherbe":
-                self.coins += spin1
-            case "ectoplasma":
-                self.coins += spin1
+                winCoins = 3
+                self.coins += winCoins
             case "ronflex":
-                self.coins += spin1
+                winCoins = 3
+                self.coins += winCoins
             case "mew":
-                self.coins += spin1
+                winCoins = 10
+                self.coins += winCoins
             default:
                 self.coins += 0
             }
-            self.results.text = "diagonale1"
+            self.results.text = "Bravo ! Diagonale: "+itemList1[spin1row1]!.keys.first!
+            self.results2.text = "Pas de multiplicateur !"
+            self.results3.text = "Vous avez gagné: "+String(winCoins)
         }
         //Diagonale 2
-        if(itemList1[spin1row1]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
-            itemList2[spin2row2]!.keys.first! == itemList3[spin3row3]!.keys.first!){
+        if(itemList1[spin1row3]!.keys.first! == itemList2[spin2row2]!.keys.first! &&
+            itemList2[spin2row2]!.keys.first! == itemList3[spin3row1]!.keys.first!){
             switch itemList1[spin1row3]!.keys.first!{
             case "ratata":
-                self.coins += spin1
+                winCoins = 1
+                self.coins += winCoins
             case "bulbi":
-                self.coins += spin1
-            case "goupix":
-                self.coins += spin1
+                winCoins = 2
+                self.coins += winCoins
             case "pika":
-                self.coins += spin1
-            case "mystherbe":
-                self.coins += spin1
-            case "ectoplasma":
-                self.coins += spin1
+                winCoins = 3
+                self.coins += winCoins
             case "ronflex":
-                self.coins += spin1
+                winCoins = 3
+                self.coins += winCoins
             case "mew":
-                self.coins += spin1
+                winCoins = 10
+                self.coins += winCoins
             default:
                 self.coins += 0
             }
-            self.results.text = "diagonale 2"
+            self.results.text = "Bravo ! Diagonale: "+itemList1[spin1row3]!.keys.first!
+            self.results2.text = "Pas de multiplicateur !"
+            self.results3.text = "Vous avez gagné: "+String(winCoins)+"pièces."
         }
+        self.numberCoins.text = String(coins)
     }
     
     
