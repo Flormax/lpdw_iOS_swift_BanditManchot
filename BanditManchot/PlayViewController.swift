@@ -10,9 +10,10 @@ import UIKit
 
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBAction func modal(sender: UIButton) {
-        showModal()
-    }
+    @IBOutlet weak var logo: UIImageView!
+
+    @IBOutlet weak var numberPlays: UILabel!
+    @IBOutlet weak var rota: UIImageView!
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var results3: UILabel!
     @IBOutlet weak var results2: UILabel!
@@ -22,7 +23,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var numberCoins: UILabel!
     @IBOutlet weak var logoPokemon: UIImageView!
     @IBOutlet weak var imgCoins: UIImageView!
-    var coins:Int = 10
+    var coins: Int = 10
+    var plays: Int = 0
     var timer = NSTimer()
     var pickerData: [String] = [String]()
     var itemList1 =  [Int: [String: UIImage]]()
@@ -34,11 +36,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.numberPlays.text = String(plays)
+        self.numberPlays.font = UIFont(name: numberCoins.font.fontName, size: 30)
         self.numberCoins.text = String(coins)
         self.numberCoins.font = UIFont(name: numberCoins.font.fontName, size: 30)
-        self.buttonImage.image = UIImage(named:"Image")
+        //self.logo.image = UIImage(named:"logo")
         self.background.image = UIImage(named:"logobackground")
         self.imgCoins.image = UIImage(named:"coins")
+        self.rota.image = UIImage(named:"rota")
         
         itemList1[0] = ["ronflex": UIImage(named: "ronflex")!]
         itemList1[1] = ["bulbi": UIImage(named: "bulbi")!]
@@ -79,6 +84,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         picker.delegate = self
         //picker.userInteractionEnabled = false
         
+        picker.layer.borderWidth = 1
+        picker.backgroundColor = UIColor.whiteColor()
+        
         picker.selectRow(5, inComponent: 0, animated: false)
         picker.selectRow(5, inComponent: 1, animated: false)
         picker.selectRow(5, inComponent: 2, animated: false)
@@ -87,12 +95,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func test(sender: UISwipeGestureRecognizer) {
         if(self.coins > 0)
         {
+            plays += 1
+            self.numberPlays.text = String(plays)
             j = 50
             picker.selectRow(995, inComponent: 0, animated: false)
             picker.selectRow(995, inComponent: 1, animated: false)
             picker.selectRow(995, inComponent: 2, animated: false)
-            self.buttonImage.image = UIImage(named:"Image-1")
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeButton", userInfo: nil, repeats: false)
+            
             coins -= 1
             self.numberCoins.text = String(coins)
             
@@ -151,11 +160,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
         }
     }
-    
-    func changeButton(){
-        self.buttonImage.image = UIImage(named:"Image")
-    }
-    
+
     func showModal() {
         let modalViewController = ModalViewController()
         modalViewController.modalPresentationStyle = .OverCurrentContext
@@ -188,7 +193,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let keys = image?.keys
             imageView.image = image![(keys?.first)!]
         }
-
         view.addSubview(imageView)
         return view
     }
