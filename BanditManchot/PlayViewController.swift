@@ -10,6 +10,9 @@ import UIKit
 
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBAction func modal(sender: UIButton) {
+        showModal()
+    }
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var results3: UILabel!
     @IBOutlet weak var results2: UILabel!
@@ -152,6 +155,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func changeButton(){
         self.buttonImage.image = UIImage(named:"Image")
     }
+    
+    func showModal() {
+        let modalViewController = ModalViewController()
+        modalViewController.modalPresentationStyle = .OverCurrentContext
+        presentViewController(modalViewController, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

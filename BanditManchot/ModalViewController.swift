@@ -2,19 +2,34 @@
 //  ModalViewController.swift
 //  BanditManchot
 //
-//  Created by lpcm on 07/04/2016.
+//  Created by Maxime Florile on 12/04/2016.
 //  Copyright © 2016 Maxime Florile. All rights reserved.
 //
 
 import UIKit
 
 class ModalViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.clearColor()
+        view.opaque = false
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+
     /*
-    // Only override drawRe: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
     */
 

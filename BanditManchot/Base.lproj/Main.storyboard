@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zig-HY-uhj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -81,20 +81,10 @@
                                     <constraint firstAttribute="width" constant="207" id="JIo-9b-K5d"/>
                                 </constraints>
                             </pickerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBb-YW-6ue">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-K7-UC0">
-                                <rect key="frame" x="474" y="544" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="mTp-bT-vgm" kind="presentation" id="ojC-V7-YCp"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTg-yJ-tLd">
                                 <rect key="frame" x="501" y="439" width="63" height="89"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33l-U3-iOC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="33l-U3-iOC">
                                 <rect key="frame" x="541" y="240" width="39" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="8pv-hO-bCO"/>
@@ -131,11 +121,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cBb-YW-6ue">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-K7-UC0">
+                                <rect key="frame" x="298" y="88" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="mTp-bT-vgm" kind="presentation" id="ojC-V7-YCp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="top" secondItem="wgE-3o-cLU" secondAttribute="bottom" constant="171" id="0Wo-00-qHr"/>
+                            <constraint firstItem="cZH-K7-UC0" firstAttribute="leading" secondItem="Lc1-ZZ-Quf" secondAttribute="leading" constant="298" id="54H-AH-stA"/>
                             <constraint firstItem="cBb-YW-6ue" firstAttribute="leading" secondItem="Lc1-ZZ-Quf" secondAttribute="leading" id="5Py-Tl-VEx"/>
                             <constraint firstItem="sPo-oB-8uM" firstAttribute="top" secondItem="5bg-Ri-vCC" secondAttribute="bottom" constant="98" id="7rB-z0-DT2"/>
                             <constraint firstItem="4IE-ju-x8c" firstAttribute="leading" secondItem="Lc1-ZZ-Quf" secondAttribute="leadingMargin" constant="27" id="Ah4-CU-of8"/>
@@ -143,9 +144,9 @@
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="leading" secondItem="HTg-yJ-tLd" secondAttribute="leading" id="CDY-pN-MEu"/>
                             <constraint firstItem="bxw-Hj-idz" firstAttribute="leading" secondItem="rNe-9Q-XSF" secondAttribute="leading" id="CGT-Zi-oih"/>
                             <constraint firstItem="rNe-9Q-XSF" firstAttribute="leading" secondItem="5bg-Ri-vCC" secondAttribute="leading" id="Coo-b9-8ug"/>
+                            <constraint firstItem="cZH-K7-UC0" firstAttribute="top" secondItem="wgE-3o-cLU" secondAttribute="bottom" constant="68" id="DYb-rs-2cn"/>
                             <constraint firstItem="4IE-ju-x8c" firstAttribute="top" secondItem="wgE-3o-cLU" secondAttribute="bottom" constant="220" id="HIC-uf-hwg"/>
                             <constraint firstItem="Y0Q-gy-Xkq" firstAttribute="centerY" secondItem="33l-U3-iOC" secondAttribute="centerY" id="Le3-Gy-kwf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cZH-K7-UC0" secondAttribute="trailing" constant="60" id="LjT-Zv-tmU"/>
                             <constraint firstItem="33l-U3-iOC" firstAttribute="top" secondItem="4IE-ju-x8c" secondAttribute="top" id="O9f-HI-alR"/>
                             <constraint firstItem="cBb-YW-6ue" firstAttribute="bottom" secondItem="sPo-oB-8uM" secondAttribute="top" id="XgA-Hl-j9W"/>
                             <constraint firstItem="HTg-yJ-tLd" firstAttribute="top" secondItem="wgE-3o-cLU" secondAttribute="bottom" constant="374" id="aP3-RJ-keZ"/>
@@ -157,6 +158,11 @@
                             <constraint firstItem="bxw-Hj-idz" firstAttribute="leading" secondItem="4IE-ju-x8c" secondAttribute="leading" id="ycv-8Z-QSe"/>
                             <constraint firstItem="33l-U3-iOC" firstAttribute="trailing" secondItem="Lc1-ZZ-Quf" secondAttribute="trailingMargin" id="zoK-nw-4E7"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cBb-YW-6ue"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="nDd-Ri-HZZ" appends="YES" id="chb-4W-66K"/>
                         </connections>
@@ -184,12 +190,12 @@
         <!--Modal View Controller-->
         <scene sceneID="UJr-bn-I7w">
             <objects>
-                <viewController id="mTp-bT-vgm" customClass="ModalViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="mTp-bT-vgm" customClass="ModalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FLY-Jj-QWB"/>
                         <viewControllerLayoutGuide type="bottom" id="5qc-Eb-1OI"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="zXv-Gf-eiB">
+                    <view key="view" opaque="NO" alpha="0.5" contentMode="scaleToFill" id="zXv-Gf-eiB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -213,7 +219,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZRA-Jl-04g" firstAttribute="centerY" secondItem="zXv-Gf-eiB" secondAttribute="centerY" id="omg-FN-YTk"/>
                             <constraint firstItem="ZRA-Jl-04g" firstAttribute="centerX" secondItem="zXv-Gf-eiB" secondAttribute="centerX" id="uY2-wF-n2k"/>
@@ -222,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNM-Qs-7HB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="1006"/>
+            <point key="canvasLocation" x="1682" y="1050"/>
         </scene>
         <!--How To View Controller-->
         <scene sceneID="vZi-RP-VnQ">
@@ -294,6 +300,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MRu-bH-nC0"/>
+        <segue reference="nLO-Qg-cMH"/>
     </inferredMetricsTieBreakers>
 </document>
